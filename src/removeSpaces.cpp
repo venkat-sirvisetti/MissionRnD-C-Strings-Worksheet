@@ -15,6 +15,8 @@ char* removeSpaces(char *str) {
 	char *temp;
 	int count = 0;
 	temp = str;
+	if (temp == 0)
+		return 0;
 	while (*temp != '\0')
 	{
 		if (*temp == ' ')
