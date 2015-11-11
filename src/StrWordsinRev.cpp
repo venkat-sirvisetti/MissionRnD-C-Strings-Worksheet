@@ -9,16 +9,24 @@ OUTPUT: Modify the string according to the logic.
 
 NOTES: Don't create new string.
 */
-#include <Stdio.h>
+#include <stdio.h>
 #include <string.h>
 
 void str_words_in_rev(char *input, int len){
 	int i=0, j=0,t=0;
 	char temp;
-	strrev(input);
-	while (*(input + i) != '\0')
+	while (t != len / 2)
 	{
-		while (*(input + i) != ' '||(input + i) != '\0')
+		temp = *(input + t);
+		*(input + t) = *(input + len - t-1);
+		*(input + len - t - 1) = temp;
+		t++;
+	}
+	i = j = t = 0;
+	temp = 0;
+	while (i!=len)
+	{
+		while ((*(input + i) != ' ')&&(i != len))
 		{
 			j++;
 			i++;
@@ -31,8 +39,8 @@ void str_words_in_rev(char *input, int len){
 			t++;
 		}
 		j = t = 0;
-		if (*(input + i) == '\0')
-			continue;
+		if (i==len)
+			break;
 		i++;
 	}
 }
