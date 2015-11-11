@@ -15,11 +15,14 @@ char KthIndexFromEnd(char *str, int K) {
 	char *temp;
 	int len = 0;
 	temp = str;
-	while (*temp++ != '\0')
+	if (temp == 0 || *(temp) == '\0' || K<0)
+		return '\0';
+	while (*temp != '\0')
 	{
 		len++;
+		temp++;
 	}
-	if (K + 1 > len)
+	if (K  >= len)
 		return '\0';
 	temp--;
 	while (K != 0)
